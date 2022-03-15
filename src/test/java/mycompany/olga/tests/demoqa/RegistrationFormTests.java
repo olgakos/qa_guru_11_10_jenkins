@@ -21,14 +21,12 @@ public class RegistrationFormTests extends TestBase {
        // $(byText("Student Registration Form")); //проверка заголовка страницы
        //вараинт:
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-
         $("[id=firstName]").setValue("Olga");
         $("#lastName").setValue("Kos"); //вниамние на разницу с #
         $("#userEmail").setValue("ok@yandex.ru");
         $(byText("Female")).click(); //Gender // todo возможны вараинты
         //$("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("8125560781"); //Mobile(10 Digits)
-
         //Date of Birth
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOptionByValue("3"); //it's April
