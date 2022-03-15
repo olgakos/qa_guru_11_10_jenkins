@@ -10,10 +10,10 @@ repositories {
 //техническое для сокращения лога запуска теста
 def selenideVersion = "6.2.1",
     //junitVersion = "5.8.2",
-    slf4jVersion = "1.7.32"
+    slf4jVersion = "1.7.36"
 
 def allureVersion = "2.17.2",
-    junitVersion = "5.8.2"
+    junitVersion = "5.8.2" //Logging
 
 allure {
     report {
@@ -32,11 +32,11 @@ allure {
 
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:6.2.1",
+            'com.codeborne:selenide:6.3.4',
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "org.junit.jupiter:junit-jupiter-api:$junitVersion")
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion") //Logging
     testRuntimeOnly(
-            "org.slf4j:slf4j-simple:1.7.29",
+            'org.slf4j:slf4j-simple:1.7.36',
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
@@ -52,9 +52,8 @@ tasks.withType(Test) {
     }
 
     //fix: кириллица
-//tasks.withType(JavaCompile) {
-//    options.encoding = 'UTF-8'
-//}
-
+tasks.withType(JavaCompile) {
+   options.encoding = 'UTF-8'
+}
 
 }
